@@ -4,5 +4,10 @@
 # External Crosshair Tool
 > Copied from AimStar
 
+## Notice
+- No risk
+- No memory read/write
+- No detecting
+
 ## Support Game
 - CS2
