@@ -7,7 +7,8 @@
 
 void Cheats::Menu()
 {
-	ImGui::Begin("External Crosshair Tool",nullptr, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse);
+	ImGui::SetNextWindowSize(ImVec2(400, 450));
+	ImGui::Begin("External Crosshair Tool",nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize);
 	
 	{
 		ImGui::BeginTabBar("TabBar", ImGuiTabBarFlags_Reorderable | ImGuiTabBarFlags_FittingPolicyScroll | ImGuiTabBarFlags_NoTooltip);
@@ -17,7 +18,6 @@ void Cheats::Menu()
 		{
 
 			ImGui::Checkbox("Enabled", &CrosshairConfig::ShowCrossHair);
-			ImGui::Checkbox("Bypass OBS", &MenuConfig::BypassOBS);
 
 			ImGui::SetNextItemWidth(MenuConfig::ComboWidth + 50);
 			if (ImGui::Combo("Presets", &CrosshairConfig::crosshairPreset, "Custom\0Dot\0Circle Dot 1\0Circle Dot 2\0Crosshair Small\0Crosshair Medium\0Crosshair Dot"))
@@ -49,9 +49,7 @@ void Cheats::Menu()
 				ImGui::SliderFloat("Circle Radius", &CrosshairConfig::CircleRadius, 0.0f, 50.0f, "%.1f");
 
 			ImGui::Separator();
-			ImGui::Checkbox("Target Crosshair", &CrosshairConfig::showTargeting);
-			ImGui::SameLine();
-			ImGui::ColorEdit4("##CrosshairColor", reinterpret_cast<float*>(&CrosshairConfig::TargetedColor), ImGuiColorEditFlags_NoInputs);
+			ImGui::Checkbox("Bypass OBS", &MenuConfig::BypassOBS);
 
 			ImGui::EndTabItem();
 		}
